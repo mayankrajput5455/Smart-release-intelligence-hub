@@ -6,7 +6,7 @@ export default function JiraTickets() {
 
   useEffect(() => {
 
-    fetch("http://localhost:5000/api/jira")
+    fetch(`${import.meta.env.VITE_API_URL}/api/jira`)
       .then((res) => res.json())
       .then((data) => {
 

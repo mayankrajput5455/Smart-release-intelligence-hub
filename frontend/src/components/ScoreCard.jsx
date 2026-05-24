@@ -6,7 +6,7 @@ export default function ScoreCard() {
 
   useEffect(() => {
 
-    fetch("http://localhost:5000/api/release")
+    fetch("${import.meta.env.VITE_API_URL}/api/release")
       .then((res) => res.json())
       .then((data) => {
         setReadiness(data.readiness)

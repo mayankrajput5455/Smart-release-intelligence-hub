@@ -10,14 +10,14 @@ export default function Signup() {
   const [password, setPassword] = useState("")
 
   const handleSignup = async (e) => {
-
+    console.log("clicked")
     e.preventDefault()
 
     try {
 
       const response = await fetch(
 
-        "http://localhost:5000/api/auth/signup",
+        `${import.meta.env.VITE_API_URL}/api/auth/signup`,
 
         {
           method: "POST",
