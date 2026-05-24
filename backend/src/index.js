@@ -1,6 +1,9 @@
 const path = require("path")
 require("dotenv").config({ path: path.resolve(__dirname, "../../.env") })
 
+console.log("Looking for .env at:", path.resolve(__dirname, "../../.env"))
+console.log("MONGO_URI:", process.env.MONGO_URI)
+
 const express = require("express")
 
 const cors = require("cors")
@@ -48,6 +51,6 @@ app.get("/", (req, res) => {
 // SERVER
 app.listen(port, () => {
 
-  console.log("Server running on port 5000", port)
+  console.log(`Server running on port ${port}`)
 
 })
