@@ -7,12 +7,13 @@ import {
 } from "react-icons/fa"
 
 const user = JSON.parse(
-    localStorage.getItem("user")
-  )
+  localStorage.getItem("user")
+)
 
 export default function Sidebar({
   collapsed,
   setCollapsed,
+  setActivePage,
 }) {
 
   return (
@@ -41,7 +42,6 @@ export default function Sidebar({
               </div>
             )}
 
-            {/* Collapse Button */}
             <button
               onClick={() => setCollapsed(!collapsed)}
               className="text-xl hover:text-blue-400 transition"
@@ -54,28 +54,34 @@ export default function Sidebar({
           {/* Menu */}
           <div className="p-4 space-y-3">
 
-            <div className="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-700 cursor-pointer transition">
+            {/* Dashboard */}
+            <div
+              onClick={() => setActivePage("dashboard")}
+              className="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-700 cursor-pointer transition"
+            >
               <FaChartBar />
 
               {!collapsed && <span>Dashboard</span>}
             </div>
 
-            <div className="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-700 cursor-pointer transition">
+            {/* GitHub PR */}
+            <div
+              onClick={() => setActivePage("github")}
+              className="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-700 cursor-pointer transition"
+            >
               <FaGithub />
 
               {!collapsed && <span>GitHub PRs</span>}
             </div>
 
-            <div className="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-700 cursor-pointer transition">
+            {/* AI Notes */}
+            <div
+              onClick={() => setActivePage("ai")}
+              className="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-700 cursor-pointer transition"
+            >
               <FaRobot />
 
               {!collapsed && <span>AI Notes</span>}
-            </div>
-
-            <div className="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-700 cursor-pointer transition">
-              <FaCog />
-
-              {!collapsed && <span>Settings</span>}
             </div>
 
           </div>
@@ -89,8 +95,8 @@ export default function Sidebar({
 
             <div className="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center font-bold text-xl">
               {
-                user?.name? user.name.charAt(0) : "U"
-             }
+                user?.name ? user.name.charAt(0) : "U"
+              }
             </div>
 
             {!collapsed && (

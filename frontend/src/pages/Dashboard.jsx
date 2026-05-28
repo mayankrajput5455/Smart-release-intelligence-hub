@@ -12,12 +12,15 @@ export default function Dashboard() {
 
   const [collapsed, setCollapsed] = useState(false)
 
+  const [activePage, setActivePage] = useState("dashboard")
+
   return (
     <div className="bg-gray-100 min-h-screen">
 
       <Sidebar
         collapsed={collapsed}
         setCollapsed={setCollapsed}
+        setActivePage={setActivePage}
       />
 
       <div
@@ -28,25 +31,60 @@ export default function Dashboard() {
 
         <TopNavbar />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+        {/* DASHBOARD */}
+        {activePage === "dashboard" && (
 
-          <ScoreCard />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
 
-          <FailedGates />
+            <ScoreCard />
 
-          <div className="md:col-span-2">
+            <FailedGates />
+
+            <div className="md:col-span-2">
+              <ReleaseTabs />
+            </div>
+
+            <div className="md:col-span-2">
+              <JiraTickets />
+            </div>
+
+            <div className="md:col-span-2">
+              <AnalyticsCharts />
+            </div>
+
+          </div>
+
+        )}
+
+        {/* GITHUB PR PAGE */}
+        {activePage === "github" && (
+
+          <div className="mt-6">
+
+            <h1 className="text-3xl font-bold mb-6">
+              GitHub Pull Requests
+            </h1>
+
+            <ScoreCard />
+
+          </div>
+
+        )}
+
+        {/* AI NOTES PAGE */}
+        {activePage === "ai" && (
+
+          <div className="mt-6">
+
+            <h1 className="text-3xl font-bold mb-6">
+              AI Generated Notes
+            </h1>
+
             <ReleaseTabs />
+
           </div>
 
-          <div className="md:col-span-2">
-            <JiraTickets />
-          </div>
-          
-          <div className="md:col-span-2">
-            <AnalyticsCharts />
-          </div>
-
-        </div>
+        )}
 
       </div>
 

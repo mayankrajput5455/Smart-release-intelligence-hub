@@ -9,7 +9,7 @@ export default function ReleaseTabs() {
 
   useEffect(() => {
 
-    fetch("${import.meta.env.VITE_API_URL}/api/release")
+    fetch(`${import.meta.env.VITE_API_URL}/api/release`)
       .then((res) => res.json())
       .then((data) => {
 

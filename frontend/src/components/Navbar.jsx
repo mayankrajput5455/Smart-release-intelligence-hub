@@ -48,18 +48,6 @@ export default function Navbar() {
       {/* Right Side */}
       <div className="flex items-center gap-5">
 
-        {/* Notification */}
-        <div className="relative">
-
-          <Bell
-            size={24}
-            className="text-gray-700 cursor-pointer"
-          />
-
-          <span className="absolute -top-1 -right-1 bg-red-500 w-3 h-3 rounded-full"></span>
-
-        </div>
-
         {/* User */}
         <div className="flex items-center gap-3">
 
