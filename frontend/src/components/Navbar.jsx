@@ -21,7 +21,7 @@ export default function Navbar() {
 
     localStorage.removeItem("isLoggedIn")
 
-    navigate("/login")
+    navigate("/home")
 
   }
 
